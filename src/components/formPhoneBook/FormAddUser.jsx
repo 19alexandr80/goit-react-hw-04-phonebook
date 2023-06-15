@@ -4,12 +4,10 @@ import PropTypes from 'prop-types';
 export function FormAddUser({ addUserPhoneBook }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
   const ressetForm = () => {
     setName('');
     setNumber('');
   };
-
   // const inputChange = e => {
   //   switch (e.target.name) {
   //     case 'name':
@@ -22,7 +20,6 @@ export function FormAddUser({ addUserPhoneBook }) {
   //       break;
   //   }
   // };
-
   const formSubmit = e => {
     e.preventDefault();
     addUserPhoneBook({
@@ -31,7 +28,6 @@ export function FormAddUser({ addUserPhoneBook }) {
     });
     ressetForm();
   };
-
   return (
     <form onSubmit={formSubmit}>
       <label>
