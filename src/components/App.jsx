@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { nanoid } from 'nanoid';
 
 import { FormAddUser } from 'components/formPhoneBook/FormAddUser';
@@ -36,9 +36,15 @@ export const App = () => {
     const contactsJson = JSON.stringify(contacts);
     localStorage.setItem('contacts', contactsJson);
   }, [contacts]);
-  const ren = contacts.filter(({ name }) => {
-    return name.toLowerCase().includes(filter.toLowerCase());
-  });
+  const ren = useMemo(() => {
+    console.log('jjjjjjjjjjjjjj');
+    return contacts.filter(({ name }) => {
+      return name.toLowerCase().includes(filter.toLowerCase());
+    });
+  }, [filter, contacts]);
+  //const ren = contacts.filter(({ name }) => {
+  //   return name.toLowerCase().includes(filter.toLowerCase());
+  // });
   return (
     <AppStyled>
       <h1>Phonebook</h1>
