@@ -37,7 +37,6 @@ export const App = () => {
     localStorage.setItem('contacts', contactsJson);
   }, [contacts]);
   const ren = useMemo(() => {
-    console.log('jjjjjjjjjjjjjj');
     return contacts.filter(({ name }) => {
       return name.toLowerCase().includes(filter.toLowerCase());
     });
